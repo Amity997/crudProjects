@@ -1,0 +1,10 @@
+const express = require('express');
+const connection =require('./connection');
+const camerasRoute =require('./routes/cameras');
+const cameraNetworksRoute =require('./routes/cameraNetworks');
+const app=express();
+app.use(express.urlencoded({extended:true}));
+app.use(express.json());
+app.use('/cameras',camerasRoute);
+app.use('/cameraNetworks',cameraNetworksRoute);
+module.exports=app;
